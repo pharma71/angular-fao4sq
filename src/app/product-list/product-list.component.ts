@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { products } from '../products';
+import { products, Product } from '../products';
 import { CartService } from '../cart.service';
 
 @Component({
@@ -20,8 +20,10 @@ export class ProductListComponent {
     window.alert('You will be notified when the product goes on sale');
   }
 
-  addToCart(item: string){
-    // test
+  addToCart(item: Product){
+    
+    alert('New Cart Item: ' + item.name);
+    this.cart.addToCart(item);
   }
 }
 
