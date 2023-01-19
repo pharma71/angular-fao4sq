@@ -31,6 +31,8 @@ can be found in the LICENSE file at https://angular.io/license
   <app-product-alerts
   [product]="product" 
   (notify)="onNotify()">
+  <p #p>Content Children Content</p>
+  <div>this is a custom thing</div>
   </app-product-alerts>
 
 </div>
@@ -55,6 +57,3 @@ can be found in the LICENSE file at https://angular.io/license
 
 <button #mybutton (click)="setValue()">Set value</button>
 </div>
-
-<ng-content>
-</ng-content>
