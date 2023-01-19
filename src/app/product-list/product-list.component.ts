@@ -1,4 +1,4 @@
-import { Component,Input, Output, ViewChild, AfterViewInit, ContentChild, ElementRef, AfterContentInit } from '@angular/core';
+import { Component,Input, Output, ViewChild, AfterViewInit, ContentChild, ElementRef, AfterContentInit, ContentChildren } from '@angular/core';
 import { products, Product } from '../products';
 import { CartService } from '../cart.service';
 import { ProductAlertsComponent } from '../product-alerts/product-alerts.component'
@@ -17,6 +17,7 @@ export class ProductListComponent implements AfterViewInit, AfterContentInit{
   @ViewChild(ProductAlertsComponent) child!: ProductAlertsComponent;
   @ViewChild("mybutton") mybutton!: ElementRef;
   @ViewChild('content') content!: ElementRef;
+  @ContentChildren(ProductListComponent) children!: ProductListComponent
 
   constructor(private cart: CartService, private elem: ElementRef){}
 
@@ -49,7 +50,7 @@ export class ProductListComponent implements AfterViewInit, AfterContentInit{
   }
 
   ngAfterContentInit(){
-    console.log(this.content)
+    console.log('List Children', this.children)
   }
 }
 

@@ -12,7 +12,8 @@ export class ProductAlertsComponent implements AfterContentInit{
   @Output() notify = new EventEmitter();
  // @ContentChildren('li') children!:QueryList<'li'>;
   @ContentChild('p') child!:ElementRef
-  @ContentChildren(ProductListComponent,{ read:ElementRef }) myelem!:QueryList<ElementRef>
+
+  @ContentChildren(ProductListComponent) myelem2!:QueryList<ProductListComponent>
 
   constructor(private elem:ElementRef){
     
@@ -20,7 +21,7 @@ export class ProductAlertsComponent implements AfterContentInit{
 
   ngAfterContentInit(){
   //  console.log(this.children.toString());
-    console.log((this.child.nativeElement as ElementRef));
-    console.log(this.myelem);
+    console.log('content Child', this.child.nativeElement as ElementRef);
+    console.log('Children',this.myelem2);
   }
 }
