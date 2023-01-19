@@ -31,6 +31,30 @@ can be found in the LICENSE file at https://angular.io/license
   <app-product-alerts
   [product]="product" 
   (notify)="onNotify()">
-</app-product-alerts>
+  </app-product-alerts>
 
 </div>
+
+<div style="margin-top: 50px;">
+<!--ngModel benötigt das Forms Module im app.modele-->
+<!--2-way data binding verbindet Component und View
+      value von input ist this.text
+      this.text = value von input
+      element ist eine Referenz zum Input HTML Element -->
+<input [(ngModel)]="text" #ctrl="ngModel" #element name="myname">
+<h2>{{ text }}</h2>
+<h2>{{ element.name }}</h2>
+
+<!--ngModel benötigt das Forms Module im app.modele
+    ngModel ist eine Form Control Directive
+    #ctrl="ngModel" übergibt die Directive an lokale
+    Variable ctrl
+    #ctrl="ngModel" benötigt [(ngModel)]="text" -->
+<input [(ngModel)]="text" #ctrl2="ngModel" name="name">
+<p>Valid: {{ ctrl2.status  }}</p>
+
+<button #mybutton (click)="setValue()">Set value</button>
+</div>
+
+<ng-content>
+</ng-content>
